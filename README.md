@@ -23,3 +23,4 @@ watch -n 30 'nvidia-smi --query-gpu=index,memory.free --format=csv'
   # Kill all of them
   pkill -9 -f "train.py"
 ```
+scp documentation [https://ss64.com/bash/scp.html]
