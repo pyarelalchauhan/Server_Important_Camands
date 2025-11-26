@@ -15,7 +15,7 @@ watch -n 30 'nvidia-smi --query-gpu=index,memory.free --format=csv'
   # Or kill specific PID
   kill -9 <PID>
 
-  Method 3: Check and kill all Python training processes
+  # Method 3: Check and kill all Python training processes
 
   # Find all training processes
   ps aux | grep "train.py" | grep -v grep
