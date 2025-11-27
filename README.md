@@ -56,3 +56,7 @@ scp documentation [https://ss64.com/bash/scp.html]
   - Current config uses num_worker = 16
   - If load is high, reduce to 8 or 12
 ```
+
+```bash
+nvidia-smi --query-gpu=utilization.gpu,utilization.memory,memory.used,memory.total --format=csv -l 1
+```
