@@ -76,3 +76,10 @@ sudo reboot
 sudo rmmod nvidia_uvm nvidia_drm nvidia_modeset nvidia
 sudo modprobe nvidia
 ```
+```bash
+nvidia-smi --query-gpu=index,name,memory.used,memory.total,memory.free,utilization.gpu,temperature.gpu --format=csv
+```
+```bash
+watch -n 2 'nvidia-smi --query-gpu=memory.used,memory.total,utilization.gpu --format=csv,noheader | head -1 && echo
+   "---" && nvidia-smi --query-compute-apps=pid,used_memory --format=csv,noheader 2>/dev/null | head -5'
+```
