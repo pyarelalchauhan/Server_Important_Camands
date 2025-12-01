@@ -60,3 +60,19 @@ watch -n 30 'nvidia-smi --query-gpu=index,memory.free --format=csv'
 ```bash
 nvidia-smi --query-gpu=utilization.gpu,utilization.memory,memory.used,memory.total --format=csv -l 1
 ```
+### When nvml or cuda driver mismatch 
+1. First, fix any broken packages:
+```bash
+sudo apt --fix-broken install
+```
+ 2. Then reboot your system:
+```bash
+sudo reboot
+```
+3. If reboot is not possible right now:
+
+  You can try unloading and reloading the NVIDIA kernel modules (risky if you have a GUI running):
+  ```bash
+sudo rmmod nvidia_uvm nvidia_drm nvidia_modeset nvidia
+sudo modprobe nvidia
+```
