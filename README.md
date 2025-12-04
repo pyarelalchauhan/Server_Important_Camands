@@ -83,3 +83,36 @@ nvidia-smi --query-gpu=index,name,memory.used,memory.total,memory.free,utilizati
 watch -n 2 'nvidia-smi --query-gpu=memory.used,memory.total,utilization.gpu --format=csv,noheader | head -1 && echo
    "---" && nvidia-smi --query-compute-apps=pid,used_memory --format=csv,noheader 2>/dev/null | head -5'
 ```
+```bash
+Push to agrihub (local → remote):
+  rsync -avz --progress /NFSDISK2/pyare/LiDAR-Subsampling-Benchmark/PTv3/
+  agrihub:/home/vaibhavk/vaibhav/pyare/LiDAR-Subsampling-Benchmark/PTv3/
+
+  Pull from agrihub (remote → local):
+  rsync -avz --progress agrihub:/home/vaibhavk/vaibhav/pyare/LiDAR-Subsampling-Benchmark/PTv3/
+  /NFSDISK2/pyare/LiDAR-Subsampling-Benchmark/PTv3/
+
+  Dry run (preview changes without syncing):
+  # Add -n flag for dry run
+  rsync -avzn --progress /NFSDISK2/pyare/LiDAR-Subsampling-Benchmark/PTv3/
+  agrihub:/home/vaibhavk/vaibhav/pyare/LiDAR-Subsampling-Benchmark/PTv3/
+
+  Sync only configs and scripts (exclude large files):
+  rsync -avz --progress \
+    --include='configs/***' \
+    --include='scripts/***' \
+    --include='SemanticKITTI/***' \
+    --exclude='outputs/***' \
+    --exclude='*.pth' \
+    --exclude='__pycache__/' \
+    /NFSDISK2/pyare/LiDAR-Subsampling-Benchmark/PTv3/ \
+    agrihub:/home/vaibhavk/vaibhav/pyare/LiDAR-Subsampling-Benchmark/PTv3/
+
+  Flags explanation:
+  - -a: Archive mode (preserves permissions, timestamps, symlinks)
+  - -v: Verbose output
+  - -z: Compress during transfer
+  - --progress: Show transfer progress
+  - -n: Dry run (test without making changes)
+  - --delete: Remove files on destination that don't exist on source (use with caution)
+```
