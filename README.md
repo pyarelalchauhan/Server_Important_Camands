@@ -116,3 +116,7 @@ Push to agrihub (local → remote):
   - -n: Dry run (test without making changes)
   - --delete: Remove files on destination that don't exist on source (use with caution)
 ```
+
+```bash
+ pkill -9 -f "ptv3_semantickitti_RS_loss0"
+```
