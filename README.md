@@ -120,3 +120,13 @@ Push to agrihub (local → remote):
 ```bash
  pkill -9 -f "ptv3_semantickitti_RS_loss0"
 ```
+Monitor Power gpu utilization:
+```bash
+  nvidia-smi                                                                                   
+   --query-gpu=timestamp,temperature.gpu,utilization.gpu,memory.used,memory.total,power.draw    
+   --format=csv,noheader; sleep 30; nvidia-smi                                                  
+   --query-gpu=timestamp,temperature.gpu,utilization.gpu,memory.used,memory.total,power.draw    
+   --format=csv,noheader; sleep 30; nvidia-smi                                                  
+   --query-gpu=timestamp,temperature.gpu,utilization.gpu,memory.used,memory.total,power.draw    
+   --format=csv,noheader
+```
